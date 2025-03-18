@@ -38,8 +38,28 @@ require_once '/db.php';
     <!-- Main -->
     <main>
         <div class="conatiner">
+            <!-- Title -->
             <h1 class="text-center mt-5">MY MOVIES</h1>
+
+            <!-- Movie Cards -->
+            <div class="row">
+                <?php foreach ($movies as $movie) { ?>
+                <div class="col-sm-12 col-md-4 col-lg-3">
+                    <div class="card mt-5">
+                        <img src="<?php echo $movie->getUrlPoster(); ?>" class="card-img-top" alt="<?php echo $movie->getTitle(); ?>">
+                        <div class="card-body">
+                            <h5 class="card-title"></h5><?php echo $movie->getTitle(); ?></h5>
+                            <p class="card-text"><?php echo $movie->getDirector(); ?></p>
+                            <p class="card-text"><small class="text-muted"><?php echo $movie->getYear(); ?></small></p>
+                            <p class="card-text"><?php echo $movie->getPlot(); ?></p>
+                        </div>
+                </div>
+                <?php } ?>
+            </div>
+            <!-- /Movie Cards -->
         </div>
+
+
     </main>
     <!-- /Main -->
 
