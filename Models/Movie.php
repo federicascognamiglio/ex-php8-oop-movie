@@ -4,14 +4,15 @@
 
         // Definisco gli attributi della classe
         public $title;
-        public $director;
         public $year;
         public $url_poster;
         public $genres;
         public $plot;
 
+        use HasDirector;
+
         // Definisco il costruttore della classe
-        public function __construct($_title, $_director, $_year, $_url_poster, $_genres, $_plot) {
+        public function __construct($_title, $_year, $_url_poster, $_genres, $_plot) {
 
             // Controllo che ogni elemento dell'array sia un'istanza di Genre
             foreach ($_genres as $genre) {
@@ -22,7 +23,6 @@
 
             // Assegno i valori passati come argomento al costruttore agli attributi della classe
             $this->title = $_title;
-            $this->director = $_director;
             $this->year = $_year;
             $this->url_poster = $_url_poster;
             $this->genres = $_genres;
@@ -32,10 +32,6 @@
         // Definisco i metodi della classe
         public function getTitle() {
             return $this->title;
-        }
-
-        public function getDirector() {
-            return $this->director;
         }
 
         public function getYear() {
